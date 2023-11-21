@@ -1,0 +1,72 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Cor de fundo do Bootstrap */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; /* Cor de fundo do Bootstrap */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #007bff; /* Cor azul do Bootstrap para informação */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    color: #495057; /* Cor de texto padrão do Bootstrap */
+}
+
+input.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ced4da; /* Cor padrão da borda do Bootstrap */
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+button.btn {
+    font-size: 1rem;
+}
+
+/* Adiciona um espaçamento extra abaixo do botão */
+button.btn-success {
+    margin-bottom: 20px;
+}
+
+ul.list-group {
+    padding: 0;
+}
+
+/* Estilo para cada item da lista de tarefas */
+ul.list-group li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd; /* Cor padrão da borda do Bootstrap */
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo para o ícone de remoção de tarefa */
+.remove-task {
+    color: #dc3545; /* Cor vermelha do Bootstrap para perigo */
+    cursor: pointer;
+}
+
+/* Estilo para ícone de conclusão de tarefa */
+.complete-task {
+    color: #28a745; /* Cor verde do Bootstrap para sucesso */
+    cursor: pointer;
+}

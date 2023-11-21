@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="keywords" content="HTML, CSS, Javascript, lógica de programação, ada tech, ifood, vem ser tech">
+    <meta name="description" content="Projeto final do Módulo de Lógica de Programação - To do List ou List de Tarefas">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link para a biblioteca do FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
+
+    <!-- Link para a biblioteca do Bootstrap (CSS) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Lista de Tarefas: Projeto de Lógica de Programação - Ada Tech e iFood - Vem Ser Tech</title>
 </head>
 <body>
-    
+
+    <main class="container-fluid">
+
+        <div class="container">
+            <h1 class="mt-5 mb-4">Minha Lista de Tarefas <i class="fas fa-tasks"></i></h1>
+            <div class="form-group">
+                <label for="taskInput">Adicione uma nova tarefa:</label>
+                <input type="text" class="form-control" id="taskInput" aria-label="Nova Tarefa" placeholder="Digite aqui sua nova tarefa">
+            </div>
+            <button onclick="addTask()" title="Clique aqui para adicionar uma tarefa" class="btn btn-success mb-3"><i class="fas fa-plus"></i> Adicionar Tarefa</button>
+            <ul id="taskList" class="list-group" aria-live="polite" aria-relevant="additions removals"></ul>
+        </div>
+    </main>
+
     <script src="script.js"></script>
 </body>
 </html>
