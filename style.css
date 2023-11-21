@@ -37,27 +37,25 @@ input.form-control {
 
 button.btn {
     font-size: 1rem;
+    margin: .5rem;
 }
 
-/* Adiciona um espaçamento extra abaixo do botão */
-button.btn-success {
-    margin-bottom: 20px;
-}
 
 ul.list-group {
     padding: 0;
 }
 
 /* Estilo para cada item da lista de tarefas */
-ul.list-group li {
+.list-item-container {
     margin-bottom: 10px;
     padding: 10px;
-    border: 1px solid #ddd; /* Cor padrão da borda do Bootstrap */
+    border: 1px solid #ddd;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 
 /* Estilo para o ícone de remoção de tarefa */
 .remove-task {
