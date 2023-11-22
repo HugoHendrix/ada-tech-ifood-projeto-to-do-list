@@ -3,22 +3,22 @@ body {
     background-color: #f8f9fa; /* Cor de fundo do Bootstrap */
 }
 
-.container {
+.container-custom {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 2rem;
     background-color: #fff; /* Cor de fundo do Bootstrap */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* 2.5rem = 25px */
     color: #007bff; /* Cor azul do Bootstrap para informação */
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
 label {
@@ -28,15 +28,15 @@ label {
 
 input.form-control {
     width: 100%;
-    padding: 10px;
-    font-size: 1rem;
+    padding: 1rem;
+    font-size: 1rem; /* 1rem = 16px */
     border: 1px solid #ced4da; /* Cor padrão da borda do Bootstrap */
     border-radius: 4px;
-    margin-top: 5px;
+    margin-top: .5rem;
 }
 
 button.btn {
-    font-size: 1rem;
+    font-size: 1rem; /* 1rem = 16px */
     margin: .5rem;
 }
 
@@ -47,8 +47,8 @@ ul.list-group {
 
 /* Estilo para cada item da lista de tarefas */
 .list-item-container {
-    margin-bottom: 10px;
-    padding: 10px;
+    margin-bottom: 1rem;
+    padding: 1rem;
     border: 1px solid #ddd;
     border-radius: 5px;
     display: flex;
@@ -67,4 +67,95 @@ ul.list-group {
 .complete-task {
     color: #28a745; /* Cor verde do Bootstrap para sucesso */
     cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .container-custom {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+
+    input.form-control {
+        width: 100%;
+        font-size: 0.8rem;
+    }
+
+    button.btn {
+        font-size: 0.5rem;
+    }
+
+    ul.list-group {
+        width: 100%;
+        padding: 0;
+    }
+
+    .list-item-container {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .remove-task,
+    .complete-task {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .container-custom {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-group {
+        margin-bottom: 0.5rem;
+    }
+
+    label {
+        font-size: 0.8rem;
+    }
+
+    input.form-control {
+        width: 100%;
+        font-size: 0.6rem;
+    }
+
+    button.btn {
+        font-size: 0.3rem;
+    }
+
+    ul.list-group {
+        width: 100%;
+        padding: 0;
+    }
+
+    .list-item-container {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .remove-task,
+    .complete-task {
+        font-size: 0.6rem;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
 }

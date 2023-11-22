@@ -1,4 +1,4 @@
-// Declare a global array to store tasks
+// Declare the global array to store tasks
 let taskArray = [];
 
 function addTask() {
@@ -17,6 +17,8 @@ function addTask() {
 
   // Update the task list
   updateTaskList();
+
+  taskInput.value = ""; // Clear the input field
 }
 
 function updateTaskList() {
@@ -42,7 +44,22 @@ function createListItem(text) {
   buttonContainer.className = "button-container";
 
   const editButton = createButton("Editar    ", () => editTask(textContainer), "btn btn-secondary btn-margin");
-  const deleteButton = createButton("Excluir    ", () => deleteTask(listItem), "btn btn-danger btn-margin");
+  const deleteButton = createButton("Excluir    ", () => {
+    // Remove task from taskArray
+    const taskIndex = taskArray.indexOf(text);
+    taskArray.splice(taskIndex, 1);
+
+    // Show confirmation message
+    const confirm = window.confirm("Deseja realmente excluir esse item?");
+
+    // Update local storage if confirmed
+    if (confirm) {
+      localStorage.setItem("tasks", JSON.stringify(taskArray));
+
+      // Remove list item from the DOM
+      listItem.remove();
+    }
+  }, "btn btn-danger btn-margin");
   const completeButton = createButton("Concluir    ", () => completeTask(textContainer), "btn btn-success btn-margin");
 
   // Add icons to buttons
@@ -80,13 +97,6 @@ function editTask(textContainer) {
   const newTask = prompt("Editar tarefa:", textContainer.innerText);
   if (newTask !== null && newTask !== "") {
     textContainer.innerText = newTask;
-  }
-}
-
-function deleteTask(listItem) {
-  const confirm = window.confirm("Deseja realmente excluir esse item?");
-  if (confirm) {
-    listItem.remove();
   }
 }
 

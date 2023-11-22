@@ -18,16 +18,18 @@
 <body>
 
     <main class="container-fluid">
-
-        <div class="container">
-            <h1 class="mt-5 mb-4">Minha Lista de Tarefas <i class="fas fa-tasks"></i></h1>
-            <div class="form-group">
-                <label for="taskInput">Adicione uma nova tarefa:</label>
-                <input type="text" class="form-control" id="taskInput" aria-label="Nova Tarefa" placeholder="Digite aqui sua nova tarefa">
+<div class="container">
+    
+            <div class="container container-custom">
+                <h1 class="mt-5 mb-4">Minha Lista de Tarefas <i class="fas fa-tasks"></i></h1>
+                <div class="form-group">
+                    <label for="taskInput">Adicione uma nova tarefa:</label>
+                    <input type="text" class="form-control" id="taskInput" aria-label="Nova Tarefa" placeholder="Digite aqui sua nova tarefa">
+                </div>
+                <button onclick="addTask()" title="Clique aqui para adicionar uma tarefa" class="btn btn-success mb-3"><i class="fas fa-plus"></i> Adicionar Tarefa</button>
+                <ul id="taskList" class="list-group" aria-live="polite" aria-relevant="additions removals"></ul>
             </div>
-            <button onclick="addTask()" title="Clique aqui para adicionar uma tarefa" class="btn btn-success mb-3"><i class="fas fa-plus"></i> Adicionar Tarefa</button>
-            <ul id="taskList" class="list-group" aria-live="polite" aria-relevant="additions removals"></ul>
-        </div>
+</div>
     </main>
 
     <script src="script.js"></script>
