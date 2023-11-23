@@ -30,26 +30,31 @@
     <main class="container mx-auto p-4">
         <div class="container container-custom">
             <h1 class="mt-5 mb-4">Minha Lista de Tarefas <i class="fas fa-tasks"></i></h1>
-
-            <div class="mb-4">
-                <label for="taskInput" class="form-label">Adicione uma nova tarefa:</label>
-                <input type="text" class="form-control bg-dark text-white" id="taskInput" aria-label="Nova Tarefa" placeholder="Digite aqui sua nova tarefa">
-            </div>
-
-            <div class="mb-4">
-                <label for="taskPriority" class="form-label">Selecione a prioridade:</label>
-                <select id="taskPriority" class="form-select bg-dark text-white">
-                    <option value=" Prioridade Alta  🚨">Alta</option>
-                    <option value=" Prioridade Média ⚠️">Média</option>
-                    <option value=" Prioridade Baixa 🍃">Baixa</option>
-                </select>
-            </div>
-
-            <button onclick="addTask()" title="Clique aqui para adicionar uma tarefa" class="btn btn-success mb-3"><i class="fas fa-plus"></i> Adicionar Tarefa</button>
-
+    
+            <form class="mb-4">
+                <div class="mb-3">
+                    <label for="taskInput" class="form-label visually-hidden">Adicione uma nova tarefa:</label>
+                    <input type="text" class="form-control bg-dark text-white" id="taskInput" aria-label="Nova Tarefa" placeholder="Digite aqui sua nova tarefa">
+                </div>
+    
+                <div class="mb-3">
+                    <label for="taskPriority" class="form-label visually-hidden">Selecione a prioridade:</label>
+                    <select id="taskPriority" class="form-select bg-dark text-white">
+                        <option value=" Prioridade Alta  🚨">Alta</option>
+                        <option value=" Prioridade Média ⚠️">Média</option>
+                        <option value=" Prioridade Baixa 🍃">Baixa</option>
+                    </select>
+                </div>
+    
+                <button type="button" onclick="addTask()" title="Clique aqui para adicionar uma tarefa" class="btn btn-success mb-3"><i class="fas fa-plus"></i> Adicionar Tarefa</button>
+            </form>
+    
             <ul id="taskList" class="list-group" aria-live="polite" aria-relevant="additions removals"></ul>
         </div>
     </main>
+    
+
+
     <footer class="bg-dark text-light p-4 mt-5">
         <div class="container">
             <div class="row">

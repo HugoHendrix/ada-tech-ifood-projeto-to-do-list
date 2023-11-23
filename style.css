@@ -35,7 +35,7 @@ label {
    }
 
    .task-priority.alta {
-    color: #c71729; /* Vermelho para alta prioridade */
+    color: #eb6c79; /* Vermelho para alta prioridade */
   }
   
   .task-priority.média {
@@ -64,22 +64,24 @@ button.btn {
 ul, ol {
     list-style: none;
     padding: 0;
-    cursor:grab;
   }
 
   #taskList li {
     margin-block: 1.5rem;
     border: 1px solid #CFCFD3;
-    padding: 1rem;
+    padding: 1.7rem;
     border-radius: 12px;
-    background-color: #7e8183;
-    box-shadow: 1px 1px 1px #CFCFD3;
+    background-color: #5d6466;
+    box-shadow: 1px 1px 1px #949497;
+    cursor:grab;
+    transition: transform 0.3s ease;
+
+
 
   }
 
   #taskList li:hover {
     background-color: #a3a5a6; 
-    transition: transform 0.3s ease;
 
 }
 
