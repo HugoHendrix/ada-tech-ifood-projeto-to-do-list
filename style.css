@@ -1,242 +1,216 @@
-
-
 body {
-    font-family: 'Poppins', sans-serif;
-    color: #CFCFD3;
+  font-family: "Poppins", sans-serif;
+  color: #cfcfd3;
 }
 
 .container-custom {
-    max-width: 800px;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    padding: 2rem;
-    background-color:#505253; 
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  max-width: 800px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background-color: #505253;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  animation: slideIn 2s ease-in-out forwards;
 }
 
 h1 {
-    font-size: 2.5rem; 
+  font-size: 2.5rem;
 }
 
 .form-group {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 label {
-    font-weight: bold;
-    font-size: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 .task-priority {
-    margin-left: 1rem;
-    font-weight: bold;
-
-   }
-
-   .task-priority.alta {
-    color: #eb6c79; /* Vermelho para alta prioridade */
-  }
-  
-  .task-priority.média {
-    color: #ffd901; /* Amarelo para média prioridade */
-  }
-  
-  .task-priority.baixa {
-    color: #2ee98b; /* Verde para baixa prioridade */
-  }
-  
-
-button.btn {
-    font-size: .7rem; 
-    margin: .5rem;
+  margin-left: 1rem;
+  font-weight: bold;
 }
 
+.task-priority.alta {
+  color: #eb6c79; /* Vermelho para alta prioridade */
+}
 
-.btn {
-    transition: transform 0.3s ease;
+.task-priority.média {
+  color: #ffd901; /* Amarelo para média prioridade */
+}
+
+.task-priority.baixa {
+  color: #2ee98b; /* Verde para baixa prioridade */
+}
+
+button.btn {
+  font-size: 0.7rem;
+  margin: 0.5rem;
+  transition: transform 0.3s ease;
 }
 
 .btn:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
-ul, ol {
-    list-style: none;
-    padding: 0;
-  }
-
-  #taskList li {
-    margin-block: 1.5rem;
-    border: 1px solid #CFCFD3;
-    padding: 1.7rem;
-    border-radius: 12px;
-    background-color: #424649;
-    box-shadow: 1px 1px 1px #949497;
-    cursor:grab;
-    transition: transform 0.3s ease;
-
-
-
-  }
-
-  #taskList li:hover {
-    background-color: #a3a5a6; 
-
+ul,
+ol {
+  list-style: none;
+  padding: 0;
 }
 
+#taskList li {
+  margin-block: 1.5rem;
+  border: 1px solid #cfcfd3;
+  padding: 1.7rem;
+  border-radius: 12px;
+  background-color: #424649;
+  box-shadow: 1px 1px 1px #949497;
+  cursor: grab;
+  transition: transform 0.3s ease;
+}
+
+#taskList li:hover {
+  background-color: #a3a5a6;
+}
 
 .list-group {
-    opacity: 0;
-    animation: fadeIn 1s ease-in-out forwards;
-
-    
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-
-.container-custom {
+  from {
     opacity: 0;
-    animation: slideIn 2s ease-in-out forwards;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
 
 /* Estilo para o rodapé */
 footer {
-    padding: 20px; 
+  padding: 20px;
 }
 
 /* Estilo para a lista de links sociais */
 .social-links {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .social-links li {
-    display: inline-block;
-    margin-right: 20px; 
+  display: inline-block;
+  margin-right: 20px;
 }
 
 /* Estilo para os ícones sociais */
 .social-links a {
-    color: #fff; /* Cor do texto clara */
+  color: #fff; /* Cor do texto clara */
 }
-
 
 /* Estilo para o texto e parágrafos na segunda coluna */
 .col-md-6 h5,
 .col-md-6 p {
-    margin-bottom: 20px; /* Espaçamento inferior */
+  margin-bottom: 20px; /* Espaçamento inferior */
 }
 
-
-
 @media (max-width: 768px) {
-    .container-custom {
-        width: 100%;
-        margin: 0 auto;
-        padding: 1rem;
+  .container-custom {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+  }
 
-    }
+  h1 {
+    font-size: 2rem;
+  }
 
-    h1 {
-        font-size: 2rem;
-    }
+  .form-group {
+    margin-bottom: 1rem;
+  }
 
-    .form-group {
-        margin-bottom: 1rem;
-    }
+  label {
+    font-size: 1rem;
+  }
 
-    label {
-        font-size: 1rem;
-    }
+  input.form-control {
+    width: 100%;
+    font-size: 0.8rem;
+  }
 
-    input.form-control {
-        width: 100%;
-        font-size: 0.8rem;
-    }
+  button.btn {
+    font-size: 0.5rem;
+  }
 
-    button.btn {
-        font-size: .5rem;
-    }
+  ul.list-group {
+    width: 100%;
+    padding: 0;
+  }
 
+  .list-item-container {
+    width: 100%;
+    margin-bottom: 0;
+  }
 
-    ul.list-group {
-        width: 100%;
-        padding: 0;
-    }
-
-    .list-item-container {
-        width: 100%;
-        margin-bottom: 0;
-    }
-
-    .remove-task,
-    .complete-task {
-        font-size: 0.8rem;
-    }
+  .remove-task,
+  .complete-task {
+    font-size: 0.8rem;
+  }
 }
 
 @media (max-width: 320px) {
-    .container-custom {
-        width: 100%;
-        margin: 0 auto;
-    }
+  .container-custom {
+    width: 100%;
+    margin: 0 auto;
+  }
 
-    h1 {
-        font-size: 1.5rem;
-    }
+  h1 {
+    font-size: 1.5rem;
+  }
 
-    .form-group {
-        margin-bottom: 0.5rem;
-    }
+  .form-group {
+    margin-bottom: 0.5rem;
+  }
 
-    label {
-        font-size: 0.8rem;
-    }
+  label {
+    font-size: 0.8rem;
+  }
 
-    input.form-control {
-        width: 100%;
-        font-size: 0.6rem;
-    }
+  input.form-control {
+    width: 100%;
+    font-size: 0.6rem;
+  }
 
-    button.btn {
-        font-size: 0.3rem;
-    }
+  button.btn {
+    font-size: 0.3rem;
+  }
 
-    ul.list-group {
-        width: 100%;
-        padding: 0;
-    }
+  ul.list-group {
+    width: 100%;
+    padding: 0;
+  }
 
-    .list-item-container {
-        width: 100%;
-        margin-bottom: 0;
-    }
+  .list-item-container {
+    width: 100%;
+    margin-bottom: 0;
+  }
 
-    .remove-task,
-    .complete-task {
-        font-size: 0.6rem;
-    }
-
-
+  .remove-task,
+  .complete-task {
+    font-size: 0.6rem;
+  }
 }
