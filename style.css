@@ -58,6 +58,7 @@ ul.list-group {
 }
 
 .list-item-container {
+    background-color:#fafafa;
     margin-bottom: 1rem;
     padding: 1rem;
     border: 3px solid #ddd;
