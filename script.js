@@ -2,7 +2,6 @@ let taskArray = [];
 
 function addTask() {
   const taskInput = document.getElementById("taskInput");
-  const taskList = document.getElementById("taskList");
 
   if (taskInput.value === "") {
     alert("Por favor, insira uma tarefa.");
@@ -16,7 +15,7 @@ function addTask() {
   }
 
   const newTask = {
-    id: Date.now(), // Usando a função Date.now() como identificador único
+    id: Date.now(),
     text: taskInput.value,
   };
 
@@ -38,11 +37,17 @@ function updateTaskList() {
     const listItem = createListItem(task);
     taskList.appendChild(listItem);
   }
+
+  // Configura a lista para ser ordenável usando SortableJS
+  new Sortable(taskList, {
+    animation: 150, // Duração da animação em milissegundos
+    onUpdate: updateTaskOrder, // Função chamada após o arrastar e soltar
+  });
 }
 
 function createListItem(task) {
-  const listItem = document.createElement("div");
-  listItem.className = "list-item";
+  const listItem = document.createElement("li");
+  listItem.className = "list-group-item";
 
   const textContainer = document.createElement("span");
   textContainer.appendChild(document.createTextNode(task.text));
@@ -65,8 +70,6 @@ function createListItem(task) {
 
   listItem.appendChild(buttonContainer);
 
-  listItem.classList.add("list-item-container");
-
   return listItem;
 }
 
@@ -82,13 +85,8 @@ function createButton(label, onClick, classes) {
 function editTask(task) {
   const newTaskText = prompt("Editar tarefa:", task.text);
   if (newTaskText !== null && newTaskText !== "") {
-    // Atualiza o texto da tarefa
     task.text = newTaskText;
-
-    // Atualiza a taskArray e o localStorage
     updateTaskArrayAndLocalStorage();
-
-    // Atualiza a lista de tarefas na interface
     updateTaskList();
   }
 }
@@ -98,15 +96,29 @@ function deleteTask(listItem, task) {
   if (confirm) {
     const taskIndex = taskArray.findIndex((t) => t.id === task.id);
     taskArray.splice(taskIndex, 1);
-
     updateTaskArrayAndLocalStorage();
-
     listItem.remove();
   }
 }
 
 function completeTask(textContainer) {
   textContainer.style.textDecoration = textContainer.style.textDecoration === "none" ? "line-through" : "none";
+  updateTaskArrayAndLocalStorage();
+}
+
+function updateTaskOrder() {
+  // Atualize a ordem das tarefas no array e no armazenamento local
+  const newTaskArray = [];
+  const taskList = document.getElementById("taskList");
+  taskList.childNodes.forEach(li => {
+    const task = taskArray.find(t => t.text === li.firstChild.textContent);
+    if (task) {
+      newTaskArray.push(task);
+    }
+  });
+
+  taskArray = newTaskArray;
+  updateTaskArrayAndLocalStorage();
 }
 
 function updateTaskArrayAndLocalStorage() {
