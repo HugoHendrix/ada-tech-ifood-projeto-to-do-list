@@ -29,6 +29,13 @@ label {
     color: #495057; 
 }
 
+.task-priority {
+    margin-left: 20px;
+    font-weight: bold;
+    color: #007bff; /* ou qualquer cor desejada */
+  }
+  
+
 input.form-control {
     width: 100%;
     padding: 1rem;

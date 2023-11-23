@@ -2,6 +2,7 @@ let taskArray = [];
 
 function addTask() {
   const taskInput = document.getElementById("taskInput");
+  const taskPriority = document.getElementById("taskPriority");
 
   if (taskInput.value === "") {
     alert("Por favor, insira uma tarefa.");
@@ -17,6 +18,7 @@ function addTask() {
   const newTask = {
     id: Date.now(),
     text: taskInput.value,
+    priority: taskPriority.value,
   };
 
   taskArray.push(newTask);
@@ -51,7 +53,13 @@ function createListItem(task) {
 
   const textContainer = document.createElement("span");
   textContainer.appendChild(document.createTextNode(task.text));
+
+  const priorityContainer = document.createElement("span");
+  priorityContainer.className = "task-priority";
+  priorityContainer.appendChild(document.createTextNode(task.priority));
+
   listItem.appendChild(textContainer);
+  listItem.appendChild(priorityContainer);
 
   const buttonContainer = document.createElement("div");
   buttonContainer.className = "button-container";
