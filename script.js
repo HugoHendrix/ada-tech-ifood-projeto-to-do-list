@@ -1,3 +1,56 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const storedTasks = JSON.parse(localStorage.getItem("tasks"));
+  if (storedTasks) {
+      taskArray = storedTasks;
+      updateTaskList();
+  }
+
+  showDateTimeGreeting();
+});
+
+function showDateTimeGreeting() {
+  const dateTimeContainer = document.getElementById("dateTimeContainer");
+  const greetingContainer = document.getElementById("greetingContainer");
+
+  // Obter a data e hora atual
+  const now = new Date();
+
+  // Configurar o formato da hora
+  const options = { hour: 'numeric', minute: 'numeric', hour12: true };
+
+  // Exibir a hora
+  const currentTime = now.toLocaleTimeString('en-US', options);
+  dateTimeContainer.innerHTML = `Hoje é ${getDayOfWeek(now)}, ${now.getDate()} de ${getMonthName(now)} de ${now.getFullYear()}, ${currentTime}`;
+
+  // Determinar a saudação com base na hora do dia
+  const currentHour = now.getHours();
+  let greeting;
+
+  if (currentHour >= 5 && currentHour < 12) {
+      greeting = "Bom dia!";
+  } else if (currentHour >= 12 && currentHour < 18) {
+      greeting = "Boa tarde!";
+  } else if (currentHour >= 18 && currentHour < 24) {
+      greeting = "Boa noite!";
+  } else {
+      greeting = "Boa madrugada!";
+  }
+
+  greetingContainer.innerHTML = greeting;
+}
+
+function getDayOfWeek(date) {
+  const daysOfWeek = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+  return daysOfWeek[date.getDay()];
+}
+
+function getMonthName(date) {
+  const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+  return months[date.getMonth()];
+}
+
+
+
 let taskArray = [];
 
 function addTask() {
