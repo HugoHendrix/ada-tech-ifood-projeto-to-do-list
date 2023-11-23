@@ -27,12 +27,24 @@ h1 {
 label {
     font-weight: bold;
     color: #495057; 
+    font-size: 1.1rem;
 }
 
 .task-priority {
-    margin-left: 20px;
+    margin-left: 1rem;
     font-weight: bold;
-    color: #007bff; /* ou qualquer cor desejada */
+   }
+
+   .task-priority.alta {
+    color: #ee7480; /* Vermelho para alta prioridade */
+  }
+  
+  .task-priority.média {
+    color: #ecd551; /* Amarelo para média prioridade */
+  }
+  
+  .task-priority.baixa {
+    color: #7bc0c2; /* Verde para baixa prioridade */
   }
   
 
@@ -46,7 +58,7 @@ input.form-control {
 }
 
 button.btn {
-    font-size: 1rem; 
+    font-size: .7rem; 
     margin: .5rem;
 }
 
@@ -59,23 +71,17 @@ button.btn {
     transform: scale(1.1);
 }
 
-
-ul.list-group {
+ul, ol {
+    list-style: none;
     padding: 0;
-}
+    cursor:grab;
+  }
 
-.list-item-container {
-    background-color:#fafafa;
-    margin-bottom: 1rem;
-    padding: 1rem;
-    border: 3px solid #ddd;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+  #taskList li {
+    margin-block: 1.5rem; /* Ajuste conforme necessário */
+  }
+  
 
-/* Adicione essas regras de estilo ao seu arquivo style.css */
 
 .list-group {
     opacity: 0;

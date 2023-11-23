@@ -49,13 +49,12 @@ function updateTaskList() {
 
 function createListItem(task) {
   const listItem = document.createElement("li");
-  listItem.className = "list-group-item";
 
   const textContainer = document.createElement("span");
   textContainer.appendChild(document.createTextNode(task.text));
 
   const priorityContainer = document.createElement("span");
-  priorityContainer.className = "task-priority";
+  priorityContainer.className = "task-priority " + task.priority.toLowerCase();
   priorityContainer.appendChild(document.createTextNode(task.priority));
 
   listItem.appendChild(textContainer);
