@@ -1,4 +1,3 @@
-// Declare the global array to store tasks
 let taskArray = [];
 
 function addTask() {
@@ -10,15 +9,24 @@ function addTask() {
     return;
   }
 
-  taskArray.push(taskInput.value);
+  // Verifica se a tarefa já existe
+  if (taskArray.find(task => task.text === taskInput.value)) {
+    alert("Essa tarefa já foi adicionada.");
+    return;
+  }
 
-  // Store tasks in local storage
+  const newTask = {
+    id: Date.now(), // Usando a função Date.now() como identificador único
+    text: taskInput.value,
+  };
+
+  taskArray.push(newTask);
+
   localStorage.setItem("tasks", JSON.stringify(taskArray));
 
-  // Update the task list
   updateTaskList();
 
-  taskInput.value = ""; // Clear the input field
+  taskInput.value = "";
 }
 
 function updateTaskList() {
@@ -32,45 +40,24 @@ function updateTaskList() {
   }
 }
 
-function createListItem(text) {
+function createListItem(task) {
   const listItem = document.createElement("div");
-  listItem.className = "list-item"; // Add the list-item class
+  listItem.className = "list-item";
 
   const textContainer = document.createElement("span");
-  textContainer.appendChild(document.createTextNode(text));
+  textContainer.appendChild(document.createTextNode(task.text));
   listItem.appendChild(textContainer);
 
   const buttonContainer = document.createElement("div");
   buttonContainer.className = "button-container";
 
-  const editButton = createButton("Editar    ", () => editTask(textContainer), "btn btn-secondary btn-margin");
-  const deleteButton = createButton("Excluir    ", () => {
-    // Remove task from taskArray
-    const taskIndex = taskArray.indexOf(text);
-    taskArray.splice(taskIndex, 1);
+  const editButton = createButton("Editar ", () => editTask(task), "btn btn-secondary btn-margin");
+  const deleteButton = createButton("Excluir ", () => deleteTask(listItem, task), "btn btn-danger btn-margin");
+  const completeButton = createButton("Concluir ", () => completeTask(textContainer), "btn btn-success btn-margin");
 
-    // Show confirmation message
-    const confirm = window.confirm("Deseja realmente excluir esse item?");
-
-    // Update local storage if confirmed
-    if (confirm) {
-      localStorage.setItem("tasks", JSON.stringify(taskArray));
-
-      // Remove list item from the DOM
-      listItem.remove();
-    }
-  }, "btn btn-danger btn-margin");
-  const completeButton = createButton("Concluir    ", () => completeTask(textContainer), "btn btn-success btn-margin");
-
-  // Add icons to buttons
-  editButton.appendChild(document.createElement("i"));
-  editButton.querySelector("i").className = "fas fa-pencil-alt";
-
-  deleteButton.appendChild(document.createElement("i"));
-  deleteButton.querySelector("i").className = "fas fa-trash";
-
-  completeButton.appendChild(document.createElement("i"));
-  completeButton.querySelector("i").className = "fas fa-check-square";
+  editButton.appendChild(document.createElement("i")).className = "fas fa-pencil-alt";
+  deleteButton.appendChild(document.createElement("i")).className = "fas fa-trash";
+  completeButton.appendChild(document.createElement("i")).className = "fas fa-check-square";
 
   buttonContainer.appendChild(editButton);
   buttonContainer.appendChild(deleteButton);
@@ -78,7 +65,6 @@ function createListItem(text) {
 
   listItem.appendChild(buttonContainer);
 
-  // Add the class to the task list container
   listItem.classList.add("list-item-container");
 
   return listItem;
@@ -93,10 +79,29 @@ function createButton(label, onClick, classes) {
   return button;
 }
 
-function editTask(textContainer) {
-  const newTask = prompt("Editar tarefa:", textContainer.innerText);
-  if (newTask !== null && newTask !== "") {
-    textContainer.innerText = newTask;
+function editTask(task) {
+  const newTaskText = prompt("Editar tarefa:", task.text);
+  if (newTaskText !== null && newTaskText !== "") {
+    // Atualiza o texto da tarefa
+    task.text = newTaskText;
+
+    // Atualiza a taskArray e o localStorage
+    updateTaskArrayAndLocalStorage();
+
+    // Atualiza a lista de tarefas na interface
+    updateTaskList();
+  }
+}
+
+function deleteTask(listItem, task) {
+  const confirm = window.confirm("Deseja realmente excluir esse item?");
+  if (confirm) {
+    const taskIndex = taskArray.findIndex((t) => t.id === task.id);
+    taskArray.splice(taskIndex, 1);
+
+    updateTaskArrayAndLocalStorage();
+
+    listItem.remove();
   }
 }
 
@@ -104,9 +109,11 @@ function completeTask(textContainer) {
   textContainer.style.textDecoration = textContainer.style.textDecoration === "none" ? "line-through" : "none";
 }
 
-// Add an event listener on load to store tasks from local storage
+function updateTaskArrayAndLocalStorage() {
+  localStorage.setItem("tasks", JSON.stringify(taskArray));
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-  // Read tasks from local storage
   const storedTasks = JSON.parse(localStorage.getItem("tasks"));
   if (storedTasks) {
     taskArray = storedTasks;

@@ -1,20 +1,23 @@
+
+
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa; /* Cor de fundo do Bootstrap */
+    font-family: 'Poppins', sans-serif;
+    background-color:  #CFCFD3 ; 
 }
 
 .container-custom {
     max-width: 800px;
-    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     padding: 2rem;
-    background-color: #fff; /* Cor de fundo do Bootstrap */
+    background-color:#F3F4F7; 
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
 h1 {
-    font-size: 2.5rem; /* 2.5rem = 25px */
-    color: #007bff; /* Cor azul do Bootstrap para informação */
+    font-size: 2.5rem; 
+    color: #495057;
 }
 
 .form-group {
@@ -23,21 +26,30 @@ h1 {
 
 label {
     font-weight: bold;
-    color: #495057; /* Cor de texto padrão do Bootstrap */
+    color: #495057; 
 }
 
 input.form-control {
     width: 100%;
     padding: 1rem;
-    font-size: 1rem; /* 1rem = 16px */
-    border: 1px solid #ced4da; /* Cor padrão da borda do Bootstrap */
+    font-size: 1rem; 
+    border: 1px solid #ced4da; 
     border-radius: 4px;
     margin-top: .5rem;
 }
 
 button.btn {
-    font-size: 1rem; /* 1rem = 16px */
+    font-size: 1rem; 
     margin: .5rem;
+}
+
+
+.btn {
+    transition: transform 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.1);
 }
 
 
@@ -45,34 +57,60 @@ ul.list-group {
     padding: 0;
 }
 
-/* Estilo para cada item da lista de tarefas */
 .list-item-container {
     margin-bottom: 1rem;
     padding: 1rem;
-    border: 1px solid #ddd;
+    border: 3px solid #ddd;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+/* Adicione essas regras de estilo ao seu arquivo style.css */
 
-/* Estilo para o ícone de remoção de tarefa */
-.remove-task {
-    color: #dc3545; /* Cor vermelha do Bootstrap para perigo */
-    cursor: pointer;
+.list-group {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+
+    
 }
 
-/* Estilo para ícone de conclusão de tarefa */
-.complete-task {
-    color: #28a745; /* Cor verde do Bootstrap para sucesso */
-    cursor: pointer;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
+
+
+.container-custom {
+    opacity: 0;
+    animation: slideIn 2s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
 
 @media (max-width: 768px) {
     .container-custom {
         width: 100%;
         margin: 0 auto;
+        padding: 1rem;
+
     }
 
     h1 {
@@ -93,8 +131,9 @@ ul.list-group {
     }
 
     button.btn {
-        font-size: 0.5rem;
+        font-size: .5rem;
     }
+
 
     ul.list-group {
         width: 100%;
@@ -154,8 +193,5 @@ ul.list-group {
         font-size: 0.6rem;
     }
 
-    img {
-        width: 100%;
-        height: auto;
-    }
+
 }
