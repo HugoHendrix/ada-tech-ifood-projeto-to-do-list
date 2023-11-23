@@ -52,13 +52,16 @@ Antes de usar a aplicação, verifique se você possui um navegador da web atual
    - Clique no botão de conclusão ao lado de uma tarefa.
    - A tarefa será visualmente marcada como concluída.
 
-### Desenvolvimento e Contribuições
-
-Este projeto foi desenvolvido como parte do programa Vem Ser Tech. Se você deseja contribuir, abra uma issue ou envie um pull request. Certifique-se de seguir as diretrizes de contribuição.
-
 
 ### Agradecimentos
 
 Agradecemos à Ada Tech e iFood pelo programa Vem Ser Tech, proporcionando oportunidades de aprendizado e desenvolvimento.
 
 Divirta-se gerenciando suas tarefas!
+
+
+## Links
+
+ - [Anotações das aulas Notion](https://hugohendrix.notion.site/L-gica-de-Programa-o-I-JS-TS-91c1d749e9e5418db34b560e1e41886a?pvs=4)
+ - [Fluxograma do Projeto](https://www.tldraw.com/s/v2_c_H0BHA2ch4ZtHGvtSIKant?viewport=-697,-887,2433,1099&page=page:page)
+ - [Projeto Lista de Tarefas](https://hugohendrix.github.io/ada-tech-ifood-projeto-to-do-list/)
